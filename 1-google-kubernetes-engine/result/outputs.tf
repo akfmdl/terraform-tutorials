@@ -3,7 +3,11 @@ data "google_container_cluster" "my_cluster" {
   location = google_container_cluster.primary.location
 }
 
-output "name" {
+output "cluster_id" {
+  value = google_container_cluster.primary.id
+}
+  
+output "cluster_name" {
   value = google_container_cluster.primary.name
 }
 
@@ -11,6 +15,19 @@ output "endpoint" {
   value = data.google_container_cluster.my_cluster.endpoint
 }
 
-output "node_pools" {
-  value = data.google_container_cluster.my_cluster.node_pool
+output "cluster_ca_cert" {
+  value = data.google_container_cluster.my_cluster.master_auth.0.cluster_ca_certificate
+  sensitive = true
+}
+
+output "region" {
+  value = var.region
+}
+
+output "zone" {
+  value = var.zone
+}
+
+output "credentials" {
+  value = var.credentials
 }
