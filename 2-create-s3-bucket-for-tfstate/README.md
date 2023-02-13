@@ -1,4 +1,4 @@
-# Use s3 bucket for tfstate
+# Create s3 bucket for tfstate
 
 ## Prerequisites
 In this section, we will use s3 bucket to store terraform state. So, you need to have an AWS account and create an s3 bucket.
@@ -7,7 +7,7 @@ In this section, we will use s3 bucket to store terraform state. So, you need to
 
 ### create files and folders
 * create your own folder somewhere you want.
-* create files named `s3.tf`, `dynamodb.tf`, `versions.tf`, `versions.tf` in your folder.
+* create files named `s3.tf`, `dynamodb.tf`, `versions.tf`, `outputs.tf` in your folder.
 
 ### Authenticate to AWS
 In this section, you will use [aws provider](https://registry.terraform.io/providers/hashicorp/aws/latest/docs). So, you need ~/.aws/credentials file to store your aws credentials. You can create it by installing aws cli and run `aws configure` command. You can also use environment variables to authenticate to AWS. You can find more information [here](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#authentication)
@@ -112,7 +112,7 @@ terraform {
 ### `outputs.tf`
 Define outputs for s3 bucket and dynamodb table.
 * You can see outputs from [aws_s3_bucket](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/s3_bucket) and [aws_dynamodb_table](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/dynamodb_table) resources
-* The outputs will be shown when you run `terraform apply` or `terraform refresh`
+* The outputs will be shown when you run `terraform apply` or `terraform output`
 ![](../src/2023-02-13-11-03-18.png)
 
 

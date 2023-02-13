@@ -41,7 +41,7 @@ Add permissions below
 ### `outputs.tf`
 * Write code to define outputs for cluster in `main.tf`: cluster name, endpoint, node_pools, etc.
 * You can see outputs from [google_container_cluster](https://registry.terraform.io/providers/hashicorp/google/latest/docs/data-sources/container_cluster)
-* The outputs will be shown when you run `terraform apply` or `terraform refresh`
+* The outputs will be shown when you run `terraform apply` or `terraform output`
 ![](../src/2023-02-13-10-18-58.png)
 
 
