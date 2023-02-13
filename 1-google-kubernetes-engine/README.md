@@ -1,7 +1,7 @@
 # Create google kubernetes engine
 
 ## Prerequisites
-GCP account is required. Account should have permission `Service Account User`
+GCP account is required. Account should have permission `Service Account User role` (roles/iam.serviceAccountUser) at the project level.
 
 ## Task
 
@@ -15,7 +15,7 @@ Error: googleapi: Error 403: Required ~ permission(s) for ~ forbidden
 ![](../src/2023-02-10-16-44-07.png)
 ![](../src/2023-02-10-16-45-28.png)
 Add permissions below
-![](../src/2023-02-10-18-51-42.png)
+![](../src/2023-02-13-10-08-11.png)
 
 ### Add service account to iam principal
 * Select IAM -> GRANT ACCESS
@@ -25,7 +25,7 @@ Add permissions below
 
 ### create files and folders
 * create your own folder somewhere you want.
-* create files named `main.tf`, `variables.tf` in your folder.
+* create files named `main.tf`, `variables.tf`, `outputs.tf` in your folder.
 
 ### `main.tf`
 * Write code to athenticate to GCP using [Google Cloud Platform Provider](https://registry.terraform.io/providers/hashicorp/google/latest/docs)
@@ -36,6 +36,14 @@ Add permissions below
 ### `variables.tf`
 * Write code to define variables for `main.tf`: credentials, cluster name, region, zone, node count, etc.
 * Use the variables in `main.tf`
+
+
+### `outputs.tf`
+* Write code to define outputs for cluster in `main.tf`: cluster name, endpoint, node_pools, etc.
+* You can see outputs from [google_container_cluster](https://registry.terraform.io/providers/hashicorp/google/latest/docs/data-sources/container_cluster)
+* The outputs will be shown when you run `terraform apply` or `terraform refresh`
+![](../src/2023-02-13-10-18-58.png)
+
 
 ### Run terraform commands
 initialize terraform
